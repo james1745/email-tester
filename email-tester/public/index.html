@@ -1,0 +1,46 @@
+!DOCTYPE html
+html
+head
+    titleEmail Deliverability Testertitle
+    style
+        body { font-family Arial, sans-serif; background #f8f9fa; }
+        h1 { text-align center; }
+        table { margin auto; border-collapse collapse; width 80%; }
+        th, td { border 1px solid #ddd; padding 8px; text-align center; }
+        th { background #4CAF50; color white; }
+    style
+head
+body
+    h1📩 Email Deliverability Testerh1
+    p style=text-aligncenter;Send your campaign to these addressesp
+    p style=text-aligncenter;binbox01@gmail.comb  binbox02@gmail.combp
+
+    table
+        thead
+            tr
+                thAccountth
+                thFolderth
+                thSubjectth
+            tr
+        thead
+        tbody id=results
+            trtdinbox01tdtdWaiting...tdtd-tdtr
+            trtdinbox02tdtdWaiting...tdtd-tdtr
+        tbody
+    table
+
+    script src=socket.iosocket.io.jsscript
+    script
+        const socket = io();
+        socket.on(emailUpdate, data = {
+            const rows = document.querySelectorAll(#results tr);
+            rows.forEach(row = {
+                if (row.children[0].textContent === data.account) {
+                    row.children[1].textContent = data.folder;
+                    row.children[2].textContent = data.subject  (No subject);
+                }
+            });
+        });
+    script
+body
+html
